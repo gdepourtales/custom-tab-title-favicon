@@ -1,12 +1,12 @@
 # Custom Tab Title and Favicon
 
-_Custom Tab Title and Favicon_ is a Firefox web extension that allows to 
-set rules to change the title and the favicon of any tab based on
+_Custom Tab Title and Favicon_ is a Firefox web extension that allows setting 
+rules to change the title, and the favicon of any tab based on
 regular expressions applied to the URL or the title of the tab
 
 ## Parameters
 
-The rules are set in the options page of the webb extension.
+The rules are set in the options page of the web extension.
 
 Each rule has the following parameters:
 
