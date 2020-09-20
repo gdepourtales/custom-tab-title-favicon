@@ -1,0 +1,14 @@
+
+
+#form_template_wrapper {
+    display: none;
+}
+
+.form_template {
+    margin: 12px 0px;
+    border-bottom: #1976D2 dashed 1px;
+}
+
+.form_template .mui-row {
+    padding: 4px 0px;
+}

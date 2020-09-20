@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="../ext/mui.min.css" rel="stylesheet" type="text/css"/>
+    <link href="options.css" rel="stylesheet" type="text/css"/>
+    <script src="../ext/mui.min.js"></script>
+    <script src="../ext/zepto.min.js"></script>
+    <title>Options</title>
+</head>
+
+<body>
+<div id="rules">
+
+</div>
+
+<div id="form_template_wrapper">
+    <div class="form_template mui-container">
+        <form class="mui-form--inline">
+            <div class="mui-row">
+                <div class="mui-textfield mui-col-sm-12">
+                    <input type="text" class="rule_name">
+                    <label>Rule Name</label>
+                </div>
+            </div>
+            <div class="mui-row">
+                <div class="mui-textfield mui-col-sm-6">
+                    <input type="text" class="title_regex">
+                    <label>Title Regular Expression</label>
+                </div>
+                <div class="mui-textfield mui-col-sm-6">
+                    <input type="text" class="url_regex">
+                    <label>URL Regular Expression</label>
+                </div>
+            </div>
+            <div class="mui-row">
+                <div class="mui-textfield mui-col-sm-12">
+                    <input type="text" class="custom_title">
+                    <label>Custom Title</label>
+                </div>
+            </div>
+            <div class="mui-row">
+                <div class="mui-col-sm-4">
+                    <img class="icon-preview" src="">
+                </div>
+                <div class="mui-textfield mui-col-sm-8">
+                    <input type="file" accept="image/*" class="custom_icon">
+                    <label>Custom Favicon</label>
+                </div>
+            </div>
+            <div class="mui-row">
+                <div class="mui-col-sm-12">
+                    <button class="mui-btn mui-btn--small mui-btn--primary save-button">Save</button>
+                    <button class="mui-btn mui-btn--small mui-btn--danger delete-button">Delete</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="mui-container">
+    <div class="mui-row">
+        <button class="mui-btn mui-btn--primary" id="add_rule_button">Add Rule</button>
+    </div>
+</div>
+
+<script src="options.js"></script>
+</body>
+
+</html>
