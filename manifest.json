@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "Custom Tab Title and Favicon",
-  "version": "1.0",
+  "version": "2.0",
   "description": "Firefox web extension to change the title and favicon of any tab depending on regular expressions applied to the tab address URL or title",
   "icons": {
     "48": "icons/outline_folder_special_black_48dp.png",
@@ -19,6 +19,21 @@
     "page": "options/options-page.html",
     "browser_style": true
   },
+  "browser_action": {
+    "default_icon": {
+      "19": "icons/outline_folder_special_black_48dp.png",
+      "38": "icons/outline_folder_special_black_96dp.png"
+    },
+    "default_title": "Custom Tab Title and Favicon",
+    "default_popup": "options/options-page.html"
+  },
+
+  "sidebar_action": {
+    "default_title": "Custom Tab Title and Favicon",
+    "default_panel": "options/options-page.html",
+    "default_icon": "icons/outline_folder_special_black_96dp.png"
+  },
+
   "browser_specific_settings": {
     "gecko": {
       "id": "custom-tab-title-favicon@pakker.io",

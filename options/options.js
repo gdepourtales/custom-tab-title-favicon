@@ -50,7 +50,6 @@ function addRule(e, id, data) {
             saveRule(rule_id, data);
         }
 
-        console.log("Save rule #" + $(newForm).attr("id"));
         e.preventDefault();
     });
 
@@ -58,7 +57,6 @@ function addRule(e, id, data) {
         $(newForm).remove();
         browser.storage.sync.remove(rule_id);
 
-        console.log("Delete rule #" + $(newForm).attr("id"));
         e.preventDefault();
     });
 
