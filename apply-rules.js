@@ -1,21 +1,26 @@
-
+const addInTitles = {}
 
 function applyRules(tabId, changeInfo) {
-  if (changeInfo.status !== "complete") {
-    return;
+
+  if (!!addInTitles[tabId] && addInTitles[tabId] == changeInfo.title) {
+    return
   }
 
   let targetTab = browser.tabs.get(tabId);
   targetTab.then((tab) => {
+
     let title = changeInfo.title || tab.title;
     let url = changeInfo.url || tab.url;
 
     let allRules = browser.storage.sync.get();
     allRules.then((rules) => {
       for (const rule_id in rules) {
+
         let rule = rules[rule_id];
+
         if ((rule.title_regex && RegExp(rule.title_regex).test(title)) ||
           (rule.url_regex && RegExp(rule.url_regex).test(url))) {
+
           if (rule.custom_title) {
             let newTitle = String(rule.custom_title)
             const pageURL = new URL(url)
@@ -43,6 +48,7 @@ function applyRules(tabId, changeInfo) {
               code: "document.title = '" + newTitle + "'; "
             });
 
+            addInTitles[tabId] = newTitle
           }
           if (rule.custom_icon_url) {
             browser.tabs.executeScript(tabId, {
@@ -63,7 +69,7 @@ browser.tabs.onUpdated.addListener(
   (tabId, changeInfo) => {
     applyRules(tabId, changeInfo);
   }, {
-    properties:['url', 'status']
+    properties:['url', 'status', 'title']
   }
 );
 
