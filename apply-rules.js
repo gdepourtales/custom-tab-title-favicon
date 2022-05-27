@@ -69,7 +69,7 @@ browser.tabs.onUpdated.addListener(
   (tabId, changeInfo) => {
     applyRules(tabId, changeInfo);
   }, {
-    properties:['url', 'status', 'title']
+    properties:['url', 'status', 'title', 'favIconUrl']
   }
 );
 
