@@ -21,8 +21,13 @@ function addRule(e, id, data) {
     if (data) {
         $(newForm).find(".rule_name").val(data.rule_name || "");
         $(newForm).find(".title_regex").val(data.title_regex || "");
+        $(newForm).find(".and").val(data.and || true);
         $(newForm).find(".url_regex").val(data.url_regex || "");
         $(newForm).find(".custom_title").val(data.custom_title || "");
+
+        if (data.custom_icon_url) {
+            $(newForm).find(".icon-preview").attr("src", data.custom_icon_url);
+        }
     }
 
     $(newForm).find(".save-button").on("click", function(e) {
@@ -30,8 +35,10 @@ function addRule(e, id, data) {
         const data = {
             rule_name: $(newForm).find(".rule_name").first().val(),
             title_regex: $(newForm).find(".title_regex").first().val(),
+            and: $(newForm).find(".and").first().val(),
             url_regex: $(newForm).find(".url_regex").first().val(),
-            custom_title: $(newForm).find(".custom_title").first().val()
+            custom_title: $(newForm).find(".custom_title").first().val(),
+            custom_icon_url: $(newForm).find(".icon-preview").first()[0].src
         };
         const fileList = $(newForm).find(".custom_icon").first()[0].files;
 
@@ -51,6 +58,10 @@ function addRule(e, id, data) {
         }
 
         e.preventDefault();
+
+    if (data && data.custom_icon_url) {
+        $(newForm).find(".icon-preview").attr("src", data.custom_icon_url);
+    }
     });
 
     $(newForm).find(".delete-button").on("click", function(e) {

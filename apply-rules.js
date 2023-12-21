@@ -18,8 +18,16 @@ function applyRules(tabId, changeInfo) {
 
         let rule = rules[rule_id];
 
-        if ((rule.title_regex && RegExp(rule.title_regex).test(title)) ||
-          (rule.url_regex && RegExp(rule.url_regex).test(url))) {
+        let testRule = false;
+        let testTitle = Boolean(rule.title_regex) && RegExp(rule.title_regex).test(title);
+        let testURL = Boolean(rule.url_regex) && RegExp(rule.url_regex).test(url);
+        if (rule.and == 'true') {
+          testRule = testTitle && testURL;
+        } else {
+          testRule = testTitle || testURL;
+        }
+
+        if (testRule) {
 
           if (rule.custom_title) {
             let newTitle = String(rule.custom_title)
